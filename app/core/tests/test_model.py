@@ -4,9 +4,9 @@ from django.contrib.auth import get_user_model
 class ModelTests(TestCase):
     def test_create_user_with_email_successful(self):
         """Test creating a new user with an email is succesful"""
-        email='abc@xyx.com'
-        password='Testpass123'
-        user=get_user_model().objects.create_user(
+        email = 'abc@xyx.com'
+        password = 'Testpass123'
+        user = get_user_model().objects.create_user(
             email=email,
             password=password
         )
@@ -15,8 +15,8 @@ class ModelTests(TestCase):
 
     def test_new_user_email_normalized(self):
         """Test the email of a new user is normalized"""
-        email='test@LONDONAPPDEV.COM'
-        user=get_user_model().objects.create_user(email, 'test123')
+        email = 'test@LONDONAPPDEV.COM'
+        user = get_user_model().objects.create_user(email, 'test123')
         self.assertEqual(user.email, email.lower())
 
     def test_new_user_invalid_email(self):
@@ -26,7 +26,7 @@ class ModelTests(TestCase):
 
     def test_create_new_superuser(self):
         """Test creating a new superuser (superuser is included in PermissionsMixim)"""
-        user=get_user_model().objects.create_superuser(
+        user = get_user_model().objects.create_superuser(
             email='test@londonappdev.com',
             password='test123'
         )
